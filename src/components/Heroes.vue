@@ -1,6 +1,6 @@
 <template>
   <div class="heroes">
-    <h3>{{hero.name}}</h3>
+    <h3>{{hero.name.toUpperCase()}}</h3>
     <div>
       <span>id:</span>
       {{hero.id}}
@@ -13,15 +13,25 @@
 </template>
 
 <script>
+import store from "../store/store";
+// import router from "../router/index";
+
 export default {
   name: "Heroes",
   data: function() {
     return {
-      hero: {
-        id: 1,
-        name: "Windstorm"
-      }
+      hero: undefined,
+      heroId: null
     };
+  },
+  created: function() {
+    this.heroId = this.$route.params.id;
+    this.getHero();
+  },
+  methods: {
+    getHero: function() {
+      this.hero = store.getHero(this.$route.params.id);
+    }
   }
 };
 </script>
