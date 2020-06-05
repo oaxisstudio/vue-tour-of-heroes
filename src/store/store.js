@@ -13,9 +13,12 @@ export default {
       { id: 20, name: 'Tornado' }
     ]
   },
+  getHeroes: function () {
+    return this.state.heroes;
+  },
   getHero: function (id) {
-    console.log(id);
-    console.log(typeof (id));
+    // console.log(id);
+    // console.log(typeof (id));
     return this.state.heroes.find((v) => v.id === Number(id));
   }
 }

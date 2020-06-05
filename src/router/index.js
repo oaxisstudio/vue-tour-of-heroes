@@ -19,6 +19,10 @@ export default new Router({
       component: DashBoard
     },
     {
+      path: '/heroes',
+      component: Heroes
+    },
+    {
       path: '/heroes/:id',
       component: Heroes
     }
