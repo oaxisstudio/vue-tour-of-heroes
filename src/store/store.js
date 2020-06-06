@@ -17,8 +17,7 @@ export default {
     return this.state.heroes;
   },
   getHero: function (id) {
-    // console.log(id);
-    // console.log(typeof (id));
-    return this.state.heroes.find((v) => v.id === Number(id));
+    // TODO:idを比較するときのベストプラクティスを調べる
+    return this.state.heroes.find((hero) => hero.id === Number(id));
   }
 }

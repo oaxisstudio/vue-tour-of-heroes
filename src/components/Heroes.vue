@@ -14,51 +14,38 @@
         </li>
       </ul>
     </div>
-    <div v-if="selectedHero">
-      <h3>{{selectedHero.name.toUpperCase()}}</h3>
-      <div>
-        <span>id:</span>
-        {{selectedHero.id}}
-      </div>
-      <div>
-        <span>name:</span>
-        <input type="text" placeholder="name" v-model="selectedHero.name" />
-      </div>
-    </div>
-    <div v-else>
-      <span>Please Select your hero</span>
-    </div>
+    <Detail :showHero="selectedHero"></Detail>
   </div>
 </template>
 
 <script>
 import store from "../store/store";
+import Detail from "../components/HeroDetail";
 // import router from "../router/index";
 
 export default {
   name: "Heroes",
+  components: {
+    Detail
+  },
   data: function() {
     return {
       heroes: undefined,
-      selectedHero: undefined,
-      heroId: null
+      selectedHero: undefined
     };
   },
   mounted: function() {
     this.heroes = store.getHeroes();
   },
-  created: function() {
-    this.getHero();
-  },
   methods: {
-    getHero: function() {
-      this.hero = store.getHero(this.$route.params.id);
-    },
     onSelect: function(id) {
+      console.log(id);
       this.selectedHero = store.getHero(id);
     },
     isSelected: function(id) {
-      return this.selectedHero.id == id;
+      if (this.selectedHero) {
+        return id == this.selectedHero.id;
+      }
     }
   }
 };
