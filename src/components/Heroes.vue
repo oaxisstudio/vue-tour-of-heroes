@@ -3,7 +3,12 @@
     <div class="list">
       <h2>My Heroes</h2>
       <ul class="heroes">
-        <li v-for="hero in heroes" :key="hero.id" v-on:click="onSelect(hero.id)">
+        <li
+          v-for="hero in heroes"
+          :key="hero.id"
+          v-on:click="onSelect(hero.id)"
+          :class="{'selected' : isSelected(hero.id)}"
+        >
           <span class="badge">{{hero.id}}</span>
           {{hero.name}}
         </li>
@@ -51,6 +56,9 @@ export default {
     },
     onSelect: function(id) {
       this.selectedHero = store.getHero(id);
+    },
+    isSelected: function(id) {
+      return this.selectedHero.id == id;
     }
   }
 };
