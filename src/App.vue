@@ -6,16 +6,19 @@
       <router-link to="/heroes">Heroes</router-link>
     </nav>
     <router-view></router-view>
+    <Messages></Messages>
   </div>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
+import Messages from "./components/Messages";
 
 export default {
   name: "App",
   components: {
-    // HelloWorld
+    // HelloWorld,
+    Messages
   },
   data: function() {
     return {
