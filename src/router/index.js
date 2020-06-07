@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HelloWorld from '../components/HelloWorld'
 import DashBoard from '../components/DashBoard'
 import Heroes from '../components/Heroes'
+import HeroesDetail from '../components/HeroDetail'
 
 Vue.use(Router)
 
@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: HelloWorld
+      component: DashBoard
     },
     {
       path: '/dashboard',
@@ -24,7 +24,7 @@ export default new Router({
     },
     {
       path: '/heroes/:id',
-      component: Heroes
+      component: HeroesDetail
     }
   ]
 })
