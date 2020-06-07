@@ -48,6 +48,8 @@ button.clear {
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
+  color: #333;
+  margin-bottom: 12px;
 }
 button:hover {
   background-color: #cfd8dc;
@@ -56,9 +58,5 @@ button:disabled {
   background-color: #eee;
   color: #aaa;
   cursor: auto;
-}
-button.clear {
-  color: #333;
-  margin-bottom: 12px;
 }
 </style>

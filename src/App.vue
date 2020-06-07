@@ -11,13 +11,11 @@
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
 import Messages from "./components/Messages";
 
 export default {
   name: "App",
   components: {
-    // HelloWorld,
     Messages
   },
   data: function() {

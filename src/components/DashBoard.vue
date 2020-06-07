@@ -2,19 +2,26 @@
   <div class="dashboard">
     <h3>Top Heroes</h3>
     <div class="grid grid-pad">
-      <a class="col-1-4" v-for="hero in heroes" :key="hero.id">
+      <router-link
+        class="col-1-4"
+        v-for="hero in heroes"
+        :key="hero.id"
+        :to="{name: 'HeroDetail', params: {id: hero.id}}"
+      >
         <div class="module hero">
           <h4>{{hero.name}}</h4>
         </div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 import store from "../store/store";
+
 export default {
   name: "DashBoard",
+
   data: function() {
     return {
       heroes: undefined

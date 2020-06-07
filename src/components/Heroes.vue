@@ -3,51 +3,32 @@
     <div class="list">
       <h2>My Heroes</h2>
       <ul class="heroes">
-        <li
-          v-for="hero in heroes"
-          :key="hero.id"
-          v-on:click="onSelect(hero.id)"
-          :class="{'selected' : isSelected(hero.id)}"
-        >
-          <span class="badge">{{hero.id}}</span>
-          {{hero.name}}
+        <li v-for="hero in heroes" :key="hero.id">
+          <router-link :to="{name: 'HeroDetail', params: {id: hero.id}}">
+            <span class="badge">{{hero.id}}</span>
+            {{hero.name}}
+          </router-link>
         </li>
       </ul>
     </div>
-    <Detail :showHero="selectedHero"></Detail>
   </div>
 </template>
 
 <script>
 import store from "../store/store";
-import Detail from "../components/HeroDetail";
 // import router from "../router/index";
 
 export default {
   name: "Heroes",
-  components: {
-    Detail
-  },
   data: function() {
     return {
-      heroes: undefined,
-      selectedHero: undefined
+      heroes: undefined
     };
   },
   mounted: function() {
     this.heroes = store.getHeroes();
   },
-  methods: {
-    onSelect: function(id) {
-      console.log(id);
-      this.selectedHero = store.getHero(id);
-    },
-    isSelected: function(id) {
-      if (this.selectedHero) {
-        return id == this.selectedHero.id;
-      }
-    }
-  }
+  methods: {}
 };
 </script>
 

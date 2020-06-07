@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import DashBoard from '../components/DashBoard'
 import Heroes from '../components/Heroes'
-import HeroesDetail from '../components/HeroDetail'
+import HeroDetail from '../components/HeroDetail'
 
 Vue.use(Router)
 
@@ -23,8 +23,9 @@ export default new Router({
       component: Heroes
     },
     {
-      path: '/heroes/:id',
-      component: HeroesDetail
+      path: '/detail/:id',
+      name: 'HeroDetail',
+      component: HeroDetail
     }
   ]
 })
